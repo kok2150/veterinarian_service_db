@@ -6,7 +6,7 @@ CREATE TABLE veterinarian (
     license_no      VARCHAR2(10)    NOT NULL,
     phone           VARCHAR2(20),
     email           VARCHAR2(100),
-    status          VARCHAR2(20)    DEFAULT 'AVAILABLE' NOT NULL,
+    status          VARCHAR2(20)    DEFAULT 'AVAILABLE' NOT NULL,--5
     CONSTRAINT pk_veterinarian PRIMARY KEY (vet_id),
     CONSTRAINT fk_veterinarian_branch FOREIGN KEY (branch_id) REFERENCES branch(branch_id),
     CONSTRAINT chk_veterinarian_vet_id CHECK (REGEXP_LIKE(vet_id, '^VET[0-9]{6}$')),

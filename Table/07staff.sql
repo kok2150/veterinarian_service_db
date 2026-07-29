@@ -5,7 +5,7 @@ CREATE TABLE staff (
     role        VARCHAR2(100)  NOT NULL,
     phone       VARCHAR2(20),
     email       VARCHAR2(100),
-    status      VARCHAR2(20)   DEFAULT 'AVAILABLE' NOT NULL,
+    status      VARCHAR2(20)   DEFAULT 'AVAILABLE' NOT NULL,--5
     CONSTRAINT pk_staff PRIMARY KEY (staff_id),
     CONSTRAINT fk_staff_branch FOREIGN KEY (branch_id) REFERENCES branch(branch_id),
     CONSTRAINT chk_staff_staff_id CHECK (REGEXP_LIKE(staff_id, '^STF[0-9]{6}$')),

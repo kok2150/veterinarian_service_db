@@ -5,7 +5,7 @@ CREATE TABLE pet (
     pet_name      VARCHAR2(100)  NOT NULL,
     gender        VARCHAR2(1),
     birth_date    DATE,
-    temperament   VARCHAR2(20),
+    temperament   VARCHAR2(20),--5
     CONSTRAINT pk_pet PRIMARY KEY (pet_id),
     CONSTRAINT fk_pet_customer FOREIGN KEY (customer_id) REFERENCES customer(customer_id),
     CONSTRAINT fk_pet_breed FOREIGN KEY (breed_id) REFERENCES breed(breed_id),
