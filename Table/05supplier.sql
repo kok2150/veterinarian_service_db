@@ -4,7 +4,7 @@ CREATE TABLE supplier (
     contact_person  VARCHAR2(100)  NOT NULL,
     phone           VARCHAR2(20)   NOT NULL,
     email           VARCHAR2(100),
-    address         VARCHAR2(100),--5
+    address         VARCHAR2(100),
     CONSTRAINT pk_supplier PRIMARY KEY (supplier_id),
     CONSTRAINT chk_supplier_supplier_id CHECK (REGEXP_LIKE(supplier_id, '^SUP[0-9]{6}$')),
     CONSTRAINT chk_supplier_company_name CHECK (REGEXP_LIKE(company_name, '^[A-Za-z0-9_%.+ -]+$')),

@@ -3,7 +3,7 @@ CREATE TABLE medicine (
     medicine_name  VARCHAR2(100)  NOT NULL,
     unit           VARCHAR2(10)   NOT NULL,
     unit_price     NUMBER(20,2)   NOT NULL,
-    stock_qty      INT            DEFAULT 0 NOT NULL,--5
+    stock_qty      INT            DEFAULT 0 NOT NULL,
     CONSTRAINT pk_medicine PRIMARY KEY (medicine_id),
     CONSTRAINT chk_medicine_medicine_id CHECK (REGEXP_LIKE(medicine_id, '^MED[0-9]{6}$')),
     CONSTRAINT chk_medicine_medicine_name CHECK (REGEXP_LIKE(medicine_name, '^[A-Za-z0-9().-+ ]+$')),

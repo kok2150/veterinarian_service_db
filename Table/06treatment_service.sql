@@ -3,7 +3,7 @@ CREATE TABLE treatment_service (
     service_name    VARCHAR2(100)  NOT NULL,
     category_name   VARCHAR2(100)  NOT NULL,
     standard_price  NUMBER(30,2)   NOT NULL,
-    description     VARCHAR2(500),--5
+    description     VARCHAR2(500),
     CONSTRAINT pk_treatment_service PRIMARY KEY (service_id),
     CONSTRAINT chk_treatment_service_service_id CHECK (REGEXP_LIKE(service_id, '^SRV[0-9]{6}$')),
     CONSTRAINT chk_treatment_service_service_name CHECK (REGEXP_LIKE(service_name, '^[A-Za-z0-9 ./#+-]+$')),
