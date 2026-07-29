@@ -6,7 +6,7 @@ CREATE TABLE customer (
     ic_no         VARCHAR2(20)   NOT NULL,
     phone         VARCHAR2(20)   NOT NULL,
     email         VARCHAR2(100),
-    address       VARCHAR2(200), --2
+    address       VARCHAR2(200), --5
     CONSTRAINT pk_customer PRIMARY KEY (customer_id),
     CONSTRAINT chk_customer_customer_id CHECK (REGEXP_LIKE(customer_id, '^CUST[0-9]{6}$')),
     CONSTRAINT chk_customer_gender CHECK (UPPER(gender) IN ('M', 'F')),
