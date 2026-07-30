@@ -1,0 +1,20 @@
+CREATE TABLE appointment (
+    appointment_id         VARCHAR2(10)   NOT NULL,
+    pet_id                 VARCHAR2(10)   NOT NULL,
+    vet_id                 VARCHAR2(10)   NOT NULL,
+    branch_id              VARCHAR2(10)   NOT NULL,
+    staff_id               VARCHAR2(10)   NOT NULL,
+    appointment_date_time  DATE           DEFAULT SYSDATE NOT NULL,
+    status                 VARCHAR2(20)   DEFAULT 'scheduled' NOT NULL,
+    CONSTRAINT pk_appointment PRIMARY KEY (appointment_id),
+    CONSTRAINT fk_pet_id FOREIGN KEY (pet_id) REFERENCES pet(pet_id),
+    CONSTRAINT fk_vet_id FOREIGN KEY (vet_id) REFERENCES veterinarian(vet_id),
+    CONSTRAINT fk_branch_id FOREIGN KEY (branch_id) REFERENCES branch(branch_id),
+    CONSTRAINT fk_staff_id FOREIGN KEY (staff_id) REFERENCES staff(staff_id),
+    CONSTRAINT chk_appointment_id CHECK (REGEXP_LIKE(appointment_id, '^APT[0-9]{6}$')),
+    CONSTRAINT chk_pet_id CHECK (REGEXP_LIKE(pet_id, '^PET[0-9]{6}$')),
+    CONSTRAINT chk_vet_id CHECK (REGEXP_LIKE(vet_id, '^VET[0-9]{6}$')),
+    CONSTRAINT chk_branch_id CHECK (REGEXP_LIKE(branch_id, '^BRH[0-9]{6}$')),
+    CONSTRAINT chk_staff_id CHECK (REGEXP_LIKE(staff_id, '^STF[0-9]{6}$')),
+    CONSTRAINT chk_status CHECK (status IN ('scheduled', 'cancelled', 'completed'))
+);

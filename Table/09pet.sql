@@ -7,11 +7,11 @@ CREATE TABLE pet (
     birth_date    DATE,
     temperament   VARCHAR2(20),
     CONSTRAINT pk_pet PRIMARY KEY (pet_id),
-    CONSTRAINT fk_pet_customer FOREIGN KEY (customer_id) REFERENCES customer(customer_id),
-    CONSTRAINT fk_pet_breed FOREIGN KEY (breed_id) REFERENCES breed(breed_id),
-    CONSTRAINT chk_pet_pet_id CHECK (REGEXP_LIKE(pet_id, '^PET[0-9]{6}$')),
-    CONSTRAINT chk_pet_customer_id CHECK (REGEXP_LIKE(customer_id, '^CUST[0-9]{6}$')),
-    CONSTRAINT chk_pet_breed_id CHECK (REGEXP_LIKE(breed_id, '^BRD[0-9]{6}$')),
-    CONSTRAINT chk_pet_gender CHECK (UPPER(gender) IN ('M', 'F')),
-    CONSTRAINT chk_pet_temperament CHECK (LOWER(temperament) IN ('fearful', 'aggressive', 'calm', 'anxious'))
+    CONSTRAINT fk_customer_id FOREIGN KEY (customer_id) REFERENCES customer(customer_id),
+    CONSTRAINT fk_breed_id FOREIGN KEY (breed_id) REFERENCES breed(breed_id),
+    CONSTRAINT chk_pet_id CHECK (REGEXP_LIKE(pet_id, '^PET[0-9]{6}$')),
+    CONSTRAINT chk_customer_id CHECK (REGEXP_LIKE(customer_id, '^CUST[0-9]{6}$')),
+    CONSTRAINT chk_breed_id CHECK (REGEXP_LIKE(breed_id, '^BRD[0-9]{6}$')),
+    CONSTRAINT chk_gender CHECK (UPPER(gender) IN ('M', 'F')),
+    CONSTRAINT chk_temperament CHECK (LOWER(temperament) IN ('fearful', 'aggressive', 'calm', 'anxious'))
 );

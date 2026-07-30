@@ -6,7 +6,7 @@ CREATE TABLE branch (
     postcode      VARCHAR2(10)   NOT NULL, 
     phone         VARCHAR2(20)   NOT NULL, 
     CONSTRAINT pk_branch PRIMARY KEY (branch_id),
-    CONSTRAINT chk_branch_branch_id CHECK (REGEXP_LIKE(branch_id, '^BRH[0-9]{6}$')),
-    CONSTRAINT chk_branch_postcode CHECK (REGEXP_LIKE(postcode, '^[0-9]{5}$')),
-    CONSTRAINT chk_branch_phone CHECK (REGEXP_LIKE(phone, '^[0-9]{10,11}$'))
+    CONSTRAINT chk_branch_id CHECK (REGEXP_LIKE(branch_id, '^BRH[0-9]{6}$')),
+    CONSTRAINT chk_postcode CHECK (REGEXP_LIKE(postcode, '^[0-9]{5}$')),
+    CONSTRAINT chk_phone CHECK (REGEXP_LIKE(phone, '^[0-9]{10,11}$'))
 );
